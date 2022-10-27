@@ -7,18 +7,8 @@ public class BaseEntityAttributeKey implements MessageKey {
     private String baseEntityCode;
     private String attributeCode;
     private String realm;
-    private Long ATTRIBUTE_ID;
-    private Long BASEENTITY_ID;
 
     public BaseEntityAttributeKey() {
-    }
-
-    public BaseEntityAttributeKey(String baseEntityCode, String attributeCode, String realm, Long ATTRIBUTE_ID, Long BASEENTITY_ID) {
-        this.baseEntityCode = baseEntityCode;
-        this.attributeCode = attributeCode;
-        this.realm = realm;
-        this.ATTRIBUTE_ID = ATTRIBUTE_ID;
-        this.BASEENTITY_ID = BASEENTITY_ID;
     }
 
     public BaseEntityAttributeKey(String baseEntityCode, String attributeCode, String realm) {
@@ -49,22 +39,6 @@ public class BaseEntityAttributeKey implements MessageKey {
 
     public void setRealm(String realm) {
         this.realm = realm;
-    }
-
-    public Long getATTRIBUTE_ID() {
-        return ATTRIBUTE_ID;
-    }
-
-    public void setATTRIBUTE_ID(Long ATTRIBUTE_ID) {
-        this.ATTRIBUTE_ID = ATTRIBUTE_ID;
-    }
-
-    public Long getBASEENTITY_ID() {
-        return BASEENTITY_ID;
-    }
-
-    public void setBASEENTITY_ID(Long BASEENTITY_ID) {
-        this.BASEENTITY_ID = BASEENTITY_ID;
     }
 
     @Override

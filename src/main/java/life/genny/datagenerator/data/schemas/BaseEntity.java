@@ -1,9 +1,12 @@
 package life.genny.datagenerator.data.schemas;
 
+import life.genny.datagenerator.AttributeCode;
+
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class BaseEntity implements MessageEntity {
 
@@ -100,6 +103,35 @@ public class BaseEntity implements MessageEntity {
         this.code = code;
     }
 
+    public void setCode(AttributeCode.ENTITY_CODE code) {
+        this.setCode(code, UUID.randomUUID().toString());
+    }
+
+    public void setCode(AttributeCode.ENTITY_CODE code, String uuid) {
+        String prefix = "";
+        prefix = switch (code) {
+            case DEF_ADDRESS -> "ADD_";
+            case DEF_AGENCY -> "AGE_";
+            case DEF_AGENT -> "AGN_";
+            case DEF_APPLICATION -> "APP_";
+            case DEF_COMPANY -> "COM_";
+            case DEF_CONTACT -> "CON_";
+            case DEF_EDU_PRO_REP -> "EDR_";
+            case DEF_EDU_PROVIDER -> "EDP_";
+            case DEF_HOST_CPY -> "HCP_";
+            case DEF_HOST_CPY_REP -> "HCR_";
+            case DEF_INTERN -> "NTRN_";
+            case DEF_INTERNSHIP -> "NTRS_";
+            case DEF_ORGANISATION -> "ORG_";
+            case DEF_PERSON -> "PER_";
+            case DEF_SUPERVISOR -> "SPV_";
+            case DEF_USER -> "USR_";
+            default -> "UNKW_";
+        };
+
+        this.code = prefix + uuid.toUpperCase();
+    }
+
     public Integer getStatus() {
         return status;
     }
@@ -119,7 +151,8 @@ public class BaseEntity implements MessageEntity {
 
     @Override
     public MessageKey getMessageKey() {
-        return new BaseEntityKey(getId(), getRealm(), getCode());
+        return new BaseEntityKey(getRealm(), getCode());
+//        return new BaseEntityKey();
     }
 
     @Override

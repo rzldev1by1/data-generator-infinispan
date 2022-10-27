@@ -1,4 +1,4 @@
-<distributed-cache>
+<distributed-cache segments="1000">
     <encoding>
         <key media-type="application/x-protostream"/>
         <value media-type="application/x-protostream"/>

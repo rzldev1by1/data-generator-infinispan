@@ -16,7 +16,7 @@ public final class PersonGenerator {
         BaseEntity entity = new BaseEntity();
         entity.setStatus(1);
         entity.setName(generator.generateFirstName() + " " + generator.generateLastName());
-        entity.setCode(AttributeCode.ENTITY_CODE.DEF_PERSON.toString());
+        entity.setCode(AttributeCode.ENTITY_CODE.DEF_PERSON);
         entity.setCreated(LocalDateTime.now());
         entity.setUpdated(LocalDateTime.now());
         return entity;

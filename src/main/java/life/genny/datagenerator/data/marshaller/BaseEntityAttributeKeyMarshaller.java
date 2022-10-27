@@ -11,9 +11,7 @@ public class BaseEntityAttributeKeyMarshaller implements MessageMarshaller<BaseE
         String attributeCode = reader.readString("attributeCode");
         String baseEntityCode = reader.readString("baseEntityCode");
         String productCode = reader.readString("realm");
-        Long attributeId = reader.readLong("ATTRIBUTE_ID");
-        Long baseEntityId = reader.readLong("BASEENTITY_ID");
-        return new BaseEntityAttributeKey(productCode, baseEntityCode, attributeCode, attributeId, baseEntityId);
+        return new BaseEntityAttributeKey(productCode, baseEntityCode, attributeCode);
     }
 
     @Override
@@ -21,8 +19,6 @@ public class BaseEntityAttributeKeyMarshaller implements MessageMarshaller<BaseE
         writer.writeString("attributeCode", beak.getAttributeCode());
         writer.writeString("baseEntityCode", beak.getBaseEntityCode());
         writer.writeString("realm", beak.getRealm());
-        writer.writeLong("ATTRIBUTE_ID", beak.getATTRIBUTE_ID());
-        writer.writeLong("BASEENTITY_ID", beak.getBASEENTITY_ID());
     }
 
     @Override

@@ -90,6 +90,7 @@ public class CacheUtils {
         try {
             if (value != null) {
                 cache.put(key, value);
+                Thread.sleep(20);
             } else {
                 LOGGER.warn("[" + cacheName + "]: Value for " + key.getKeyString() + " is null, nothing to be added.");
             }

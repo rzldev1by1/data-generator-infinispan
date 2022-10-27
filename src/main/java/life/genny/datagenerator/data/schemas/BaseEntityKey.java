@@ -4,30 +4,15 @@ public class BaseEntityKey implements MessageKey {
 
     public static final String BE_KEY_DELIMITER = ":";
 
-    private Long id;
     private String realm;
     private String code;
 
     public BaseEntityKey() {
     }
 
-    public BaseEntityKey(Long id, String realm, String code) {
-        this.id = id;
-        this.realm = realm;
-        this.code = code;
-    }
-
     public BaseEntityKey(String realm, String code) {
         this.realm = realm;
         this.code = code;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getRealm() {

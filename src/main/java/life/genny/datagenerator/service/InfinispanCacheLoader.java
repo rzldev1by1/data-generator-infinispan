@@ -127,7 +127,8 @@ public class InfinispanCacheLoader {
     private void insertDataIntoInfinispan(BaseEntity be) {
         LOGGER.debug(be.toString());
         List<BaseEntityAttribute> beAttrs = be.getAttributes();
-        CacheUtils.putEntityIntoCache(remoteCacheManager, BASEENTITY_CACHE_NAME, be.getMessageKey(), be);
+        boolean success = CacheUtils.putEntityIntoCache(remoteCacheManager, BASEENTITY_CACHE_NAME, be.getMessageKey(), be);
+        if (!success) LOGGER.error("Failed to insert: " + be.toString());
         for (int i =0; i < beAttrs.size(); i++) {
             BaseEntityAttribute beAttr = beAttrs.get(i);
             beAttr.setBASEENTITY_ID(be.getId());

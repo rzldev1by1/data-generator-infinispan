@@ -286,7 +286,8 @@ public non-sealed class BaseEntityAttribute implements MessageEntity, BaseEntity
 
     @Override
     public MessageKey getMessageKey() {
-        return new BaseEntityAttributeKey(getBaseEntityCode(), getAttributeCode(), getRealm(), getATTRIBUTE_ID(), getBASEENTITY_ID());
+        return new BaseEntityAttributeKey(getBaseEntityCode(), getAttributeCode(), getRealm());
+//        return new BaseEntityAttributeKey();
     }
 
     @Override

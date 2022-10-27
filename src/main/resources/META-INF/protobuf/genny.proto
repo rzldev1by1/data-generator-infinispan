@@ -1,7 +1,6 @@
 package genny;
 
 message BaseEntityKey {
-  optional int64 id = 2;
   optional string realm = 5;
   optional string code = 7;
 }
@@ -30,8 +29,6 @@ message BaseEntityAttributeKey {
   optional string attributeCode = 1;
   optional string baseEntityCode = 2;
   optional string realm = 7;
-  optional int64 ATTRIBUTE_ID = 20;
-  optional int64 BASEENTITY_ID = 21;
 }
 
 /**
