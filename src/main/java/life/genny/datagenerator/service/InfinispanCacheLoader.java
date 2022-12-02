@@ -44,9 +44,11 @@ public class InfinispanCacheLoader {
     CacheUtils cacheUtils;
 
     void onStart (@Observes StartupEvent event) {
+        long start = new Date().getTime();
         onSchemaBuild();
         onCacheBuild();
         onDataLoad();
+        LOGGER.info("Finished in " + (new Date().getTime() - start) + "ms");
     }
 
 
@@ -65,7 +67,7 @@ public class InfinispanCacheLoader {
 
     private void onDataLoad() {
         LOGGER.debug("onDataLoad");
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 100; i++) {
             BaseEntity be = PersonGenerator.generate();
             be.setId((long) i);
             insertDataIntoInfinispan(be);

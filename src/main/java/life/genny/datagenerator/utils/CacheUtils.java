@@ -16,6 +16,7 @@ import javax.inject.Inject;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.concurrent.TimeUnit;
 
 @ApplicationScoped
 public class CacheUtils {
